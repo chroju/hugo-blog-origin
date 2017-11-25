@@ -1,7 +1,7 @@
 baseURL = "https://chroju.github.io/"
 title = "the world as code"
 metaDataFormat = "toml"
-theme = "cactus"
+theme = "cactus-plus"
 canonifyURLs = true
 summaryLength = 140
 rssLimit = 10
@@ -27,6 +27,13 @@ enableEmoji = true
   socialIconStyle = "circle"
   copyright = "written by chroju"
   enableRSS = true
+  customCSS = [ "css/override.css" ]
+  # Navigation links
+  home = ""
+  about = ""
+  archive = ""
+  subscribe = ""
+  tags = ""
 
 [social]
   githubalt = "https://github.com/chroju"
