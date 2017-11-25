@@ -1,41 +1,59 @@
-baseURL = "https://chroju.github.io/"
-title = "the world as code"
-metaDataFormat = "toml"
-theme = "cactus-plus"
-canonifyURLs = true
-summaryLength = 140
-rssLimit = 10
+baseurl             = "https://chroju.github.io/"
+builddrafts         = false
+canonifyurls        = true
+contentdir          = "content"
+languageCode        = "ja"
+hasCJKLanguage      = true
+enableEmoji         = true
+layoutdir           = "layouts"
+publishdir          = "public"
+theme               = "cocoa"
+author              = "the world as code"
+title               = "the world as code"
+pygmentsuseclasses  = true
+pluralizelisttitles = false
 
-hasCJKLanguage = true
-languageCode = "ja"
-enableEmoji = true
-
-[author]
-  name = "chroju"
+[outputFormats]
+[outputFormats.RSS]
+mediaType = "application/rss"
+baseName = "atom"
 
 [permalinks]
-  post = "/blog/:year/:month/:day/:filename/"
+blog = "/blog/:year/:month/:day/:filename/"
 
-[mediaTypes]
-  [mediaTypes."application/rss"]
-  basename = "atom.xml"
+[[menu.main]]
+name                   = "Archive"
+weight                 = -120
+identifier             = "blog"
+url                    = "/blog/"
+
+[[menu.main]]
+name                   = "About"
+weight                 = -110
+identifier             = "about"
+url                    = "/about/"
 
 [params]
-  name = "the world as code"
-  description = "about IT Infrastructure, DevOps, and Hacker philosophy."
-  bio = "Write code to automate everything !"
-  socialIconStyle = "circle"
-  copyright = "written by chroju"
-  enableRSS = true
-  customCSS = [ "css/override.css" ]
-  # Navigation links
-  home = ""
-  about = ""
-  archive = ""
-  subscribe = ""
-  tags = ""
+latestpostscount       = 5                             # how many posts to display on the home page
+i18n_flags             = false                         # whether to display small country flags for available translations
+author                 = "the world as code"
+cachebuster            = true                          # add the current unix timestamp in query string for cache busting css assets
+dateform               = "Jan 2, 2006"
+dateformfull           = "Mon Jan 2 2006 15:04:05 JST"
+description            = "write code to automate everything."
+email                  = "chor.chroju@gmail.com"
+extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
+faviconfile            = "img/favicon.ico"
+github                 = "//github.com/chroju"
+lang                   = "ja"
+noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
+selfintro              = ""                            # appears in the site header when set to a non-empty string
+twitter                = "//twitter.com/chroju"
 
-[social]
-  githubalt = "https://github.com/chroju"
-  twitter = "https://twitter.com/chroju"
+highlightjs            = true
+# highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
+highlightjsStyle     = "darcula"
+
+avatar                 = "img/avatar.png" # path to image in static dir e.g img/avatar.png (do not use in the same time as gravatar)
+# gravatar             = ""                # gravatar hash. see https://en.gravatar.com/site/implement/hash/. do not use in the same time as avatar
 
