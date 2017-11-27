@@ -1,0 +1,37 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+checkout:
+  post:
+    - git subumodule sync
+    - git subumodule update --init
+
+dependencies:
+  cache_directories:
+    - "~/.local"
+  pre:
+    - if [[ ! type hugo ]]; then \
+        mkdir -p $HOME/.local && \
+        wget https://github.com/gohugoio/hugo/releases/download/v0.31.1/hugo_0.31.1_Linux-ARM64.deb -o=$HOME/.local/hugo.deb \
+      ; fi
+  post:
+    - sudo dpkg -i $HOME/.local/hugo.deb
+
+test:
+  override:
+    - true
+  post:
+    - rm -rf public/*
+    - hugo
+
+deployment:
+  github:
+    branch: master
+    commands:
+      - cd public
+      - git config --global user.name chroju
+      - git config --global user.email chor.chroju@gmail.com
+      - git add --all
+      - git commit -m "${CIRCLE_BRANCH}"
+      - git push git@github.com:chroju/chroju.github.io
