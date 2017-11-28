@@ -26,6 +26,7 @@ jobs:
             go get github.com/gohugoio/hugo
             git clone https://github.com/chroju/chroju.github.io public
             rm -rf public/*
+            sudo cp /usr/share/zoneinfo/Japan /etc/localtime
             hugo
       - save_cache:
           key: hugo-cache-public-{{ epoch }}
