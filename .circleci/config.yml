@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - save_cache:
-          key: hugo-cache-{{ .BuildNum }}
+          key: hugo-cache-{{ .Branch }}
           paths:
             - ~/hugo
 
@@ -18,7 +18,7 @@ jobs:
     working_directory: ~/hugo
     steps:
       - restore_cache:
-          key: hugo-cache-{{ .BuildNum }}
+          key: hugo-cache-{{ .Branch }}
       - run:
           command: |
             git submodule sync
@@ -26,7 +26,7 @@ jobs:
             go get github.com/gohugoio/hugo
             hugo
       - save_cache:
-          key: hugo-cache-{{ .BuildNum }}
+          key: hugo-cache-{{ .Branch }}
           paths:
             - ~/hugo
 
@@ -36,7 +36,7 @@ jobs:
     working_directory: ~/hugo
     steps:
       - restore_cache:
-          key: hugo-cache-{{ .BuildNum }}
+          key: hugo-cache-{{ .Branch }}
       - run:
           command: |
             cd public
