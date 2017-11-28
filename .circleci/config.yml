@@ -18,7 +18,7 @@ jobs:
     working_directory: ~/hugo
     steps:
       - restore_cache:
-          key: hugo-cache-{{ .Branch }}
+          key: hugo-cache
       - run:
           command: |
             git submodule sync
