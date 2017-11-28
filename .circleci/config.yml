@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - save_cache:
-          key: hugo-cache
+          key: hugo-cache-{{ epoch }}
           paths:
             - ~/hugo
 
@@ -24,22 +24,22 @@ jobs:
             git submodule sync
             git submodule update --init
             go get github.com/gohugoio/hugo
+            rm -rf public/*
             hugo
       - save_cache:
-          key: hugo-cache-{{ .Branch }}
+          key: hugo-cache-public-{{ epoch }}
           paths:
-            - ~/hugo
+            - ~/hugo/public
 
   deploy:
     machine:
       enabled: true
-    working_directory: ~/hugo
+    working_directory: ~/public
     steps:
       - restore_cache:
-          key: hugo-cache-{{ .Branch }}
+          key: hugo-cache-{{ epoch }}
       - run:
           command: |
-            cd public
             git config --global user.name chroju
             git config --global user.email chor.chroju@gmail.com
             git add --all
