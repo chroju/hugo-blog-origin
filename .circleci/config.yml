@@ -37,7 +37,7 @@ jobs:
     working_directory: ~/public
     steps:
       - restore_cache:
-          key: hugo-cache-{{ epoch }}
+          key: hugo-cache-public
       - run:
           command: |
             git config --global user.name chroju
