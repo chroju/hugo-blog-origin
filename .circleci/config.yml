@@ -1,37 +1,64 @@
-machine:
-  timezone:
-    Asia/Tokyo
+version: 2
 
-checkout:
-  post:
-    - git subumodule sync
-    - git subumodule update --init
+jobs:
+  checkout_code:
+    docker:
+      - image: circleci/golang:1.8
+    working_directory: ~/hugo
+    steps:
+      - checkout
+      - save_cache:
+        key: hugo-cache-{{ .BuildNum }}
+        paths:
+          - ~/hugo
 
-dependencies:
-  cache_directories:
-    - "~/.local"
-  pre:
-    - if [[ ! type hugo ]]; then \
-        mkdir -p $HOME/.local && \
-        wget https://github.com/gohugoio/hugo/releases/download/v0.31.1/hugo_0.31.1_Linux-ARM64.deb -o=$HOME/.local/hugo.deb \
-      ; fi
-  post:
-    - sudo dpkg -i $HOME/.local/hugo.deb
+  build:
+    docker:
+      - image: circleci/golang:1.8
+    working_directory: ~/hugo
+    steps:
+      - restore_cache:
+        key: hugo-cache-{{ .BuildNum }}
+      - run:
+          command: |
+            git subumodule sync
+            git subumodule update --init
+            go get github.com/gohugoio/hugo
+            hugo
+      - save_cache:
+        key: hugo-cache-{{ .BuildNum }}
+        paths:
+          - ~/hugo
 
-test:
-  override:
-    - true
-  post:
-    - rm -rf public/*
-    - hugo
+  deploy:
+    machine:
+      enabled: true
+    working_directory: ~/hugo
+    steps:
+      - restore_cache:
+        key: hugo-cache-{{ .BuildNum }}
+      - run:
+          command: |
+            cd public
+            git config --global user.name chroju
+            git config --global user.email chor.chroju@gmail.com
+            git add --all
+            git commit -m "${CIRCLE_BRANCH}"
+            git push git@github.com:chroju/chroju.github.io
 
-deployment:
-  github:
-    branch: master
-    commands:
-      - cd public
-      - git config --global user.name chroju
-      - git config --global user.email chor.chroju@gmail.com
-      - git add --all
-      - git commit -m "${CIRCLE_BRANCH}"
-      - git push git@github.com:chroju/chroju.github.io
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - checkout_code
+      - build
+        requires:
+          - checkout_code
+      - hold:
+        type: approval
+        requires:
+          - build
+      - deploy
+        requires:
+          - hold
+
