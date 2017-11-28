@@ -24,6 +24,7 @@ jobs:
             git submodule sync
             git submodule update --init
             go get github.com/gohugoio/hugo
+            git clone https://github.com/chroju/chroju.github.io public
             rm -rf public/*
             hugo
       - save_cache:
