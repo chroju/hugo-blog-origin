@@ -44,7 +44,7 @@ jobs:
             git config --global user.name chroju
             git config --global user.email chor.chroju@gmail.com
             git add --all
-            git commit -m "${CIRCLE_BRANCH}"
+            git commit -m "${CIRCLE_BRANCH} (Circle CI)"
             git push git@github.com:chroju/chroju.github.io
 
 workflows:
@@ -55,10 +55,6 @@ workflows:
       - build:
           requires:
             - checkout_code
-      - hold:
-          type: approval
-          requires:
-            - build
       - deploy:
           requires:
-            - hold
+            - build
