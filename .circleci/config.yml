@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - save_cache:
-          key: hugo-cache-{{ .Branch }}
+          key: hugo-cache
           paths:
             - ~/hugo
 
