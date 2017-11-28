@@ -34,7 +34,7 @@ jobs:
   deploy:
     machine:
       enabled: true
-    working_directory: ~/public
+    working_directory: ~/hugo/public
     steps:
       - restore_cache:
           key: hugo-cache-public
