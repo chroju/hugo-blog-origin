@@ -51,14 +51,14 @@ workflows:
   build_and_deploy:
     jobs:
       - checkout_code
-      - build
+      - build:
         requires:
           - checkout_code
       - hold:
         type: approval
         requires:
           - build
-      - deploy
+      - deploy:
         requires:
           - hold
 
