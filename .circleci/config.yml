@@ -8,9 +8,9 @@ jobs:
     steps:
       - checkout
       - save_cache:
-        key: hugo-cache-{{ .BuildNum }}
-        paths:
-          - ~/hugo
+          key: hugo-cache-{{ .BuildNum }}
+          paths:
+            - ~/hugo
 
   build:
     docker:
@@ -18,7 +18,7 @@ jobs:
     working_directory: ~/hugo
     steps:
       - restore_cache:
-        key: hugo-cache-{{ .BuildNum }}
+          key: hugo-cache-{{ .BuildNum }}
       - run:
           command: |
             git subumodule sync
@@ -26,9 +26,9 @@ jobs:
             go get github.com/gohugoio/hugo
             hugo
       - save_cache:
-        key: hugo-cache-{{ .BuildNum }}
-        paths:
-          - ~/hugo
+          key: hugo-cache-{{ .BuildNum }}
+          paths:
+            - ~/hugo
 
   deploy:
     machine:
@@ -36,7 +36,7 @@ jobs:
     working_directory: ~/hugo
     steps:
       - restore_cache:
-        key: hugo-cache-{{ .BuildNum }}
+          key: hugo-cache-{{ .BuildNum }}
       - run:
           command: |
             cd public
@@ -55,9 +55,9 @@ workflows:
         requires:
           - checkout_code
       - hold:
-        type: approval
-        requires:
-          - build
+          type: approval
+          requires:
+            - build
       - deploy:
-        requires:
-          - hold
+          requires:
+            - hold
