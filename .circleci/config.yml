@@ -12,6 +12,24 @@ jobs:
           paths:
             - ~/hugo
 
+  textlint:
+    docker:
+      - image: circleci/node:9.2.0
+    working_directory: ~/hugo/.circleci
+    steps:
+      - restore_cache:
+          keys:
+            - hugo-cache
+            - hugo-nodemodules-{{ checksum "package.json" }}
+      - run:
+          command: |
+            npm install
+            npm run textlint "../content/blog/**"
+      - save_cache:
+          key: hugo-nodemodules-{{ checksum "package.json" }}
+          paths:
+            - ~/hugo/.circleci/node_modules
+
   build:
     docker:
       - image: circleci/golang:1.8
@@ -53,9 +71,16 @@ workflows:
   build_and_deploy:
     jobs:
       - checkout_code
+      - textlint:
+          requires:
+            - checkout_code
       - build:
           requires:
             - checkout_code
       - deploy:
+          filters:
+            branches:
+              only: master
           requires:
+            - textlint
             - build
