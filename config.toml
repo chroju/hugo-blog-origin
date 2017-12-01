@@ -1,4 +1,4 @@
-baseurl             = "https://chroju.github.io/"
+baseurl             = "https://chroju.github.io"
 builddrafts         = false
 canonifyurls        = true
 contentdir          = "content"
@@ -8,7 +8,7 @@ enableEmoji         = true
 layoutdir           = "layouts"
 publishdir          = "public"
 theme               = "cocoa"
-author              = "the world as code"
+author              = "chroju"
 title               = "the world as code"
 pygmentsuseclasses  = true
 pluralizelisttitles = false
