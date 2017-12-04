@@ -24,7 +24,7 @@ jobs:
       - run:
           command: |
             npm install
-            npm run textlint "../content/blog/**"
+            npm run textlint "../content/blog/${CIRCLE_BRANCH}.md"
       - save_cache:
           key: hugo-nodemodules-{{ checksum "package.json" }}
           paths:
@@ -75,6 +75,9 @@ workflows:
           requires:
             - checkout_code
       - build:
+          filters:
+            branches:
+              ignore: master
           requires:
             - checkout_code
       - deploy:
