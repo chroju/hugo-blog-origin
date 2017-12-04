@@ -72,12 +72,12 @@ workflows:
     jobs:
       - checkout_code
       - textlint:
-          requires:
-            - checkout_code
-      - build:
           filters:
             branches:
               ignore: master
+          requires:
+            - checkout_code
+      - build:
           requires:
             - checkout_code
       - deploy:
