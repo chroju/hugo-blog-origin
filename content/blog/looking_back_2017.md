@@ -3,7 +3,7 @@ title = "2017年総括 - 計算機科学と向き合う"
 date = 2017-12-29T21:43:07+09:00
 tags = ""
 isCJKLanguage = true
-draft = true
+draft = false
 +++
 
 停滞
