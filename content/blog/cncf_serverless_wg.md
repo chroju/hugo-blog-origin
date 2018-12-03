@@ -27,4 +27,14 @@ CNCF ではクラウドネイティブな特定技術分野に関するワーキ
 
 実際に資料を見ると、あまり国内では耳にしないサービス、プロダクトも数多くあります。例えば「Platform」には AWS Lambda, Azure Function, netlify といったサービス依存のもの（Landscape 内では "Hosted" と表現されています）のほか、 "Installable" な OpenFaaS や Kubeless などが並んでいますが、ここに Huawei の名前も連なっているのはなかなかピンと来なかったり、 "Installable" には見たこともないプロダクトもいくつかあります。
 
+最近触ってみて使えそうだなと感じているサービスに [Dashbird](https://dashbird.io/) があります。 AWS X-Ray や CloudWatch と連携して、 Lambda や API Gateway の見やすいダッシュボードを作ってくれるシンプルなサービスです。
+
+<a href="https://gyazo.com/c20fabd4ac3f332c32b8d3732a80ec37"><img src="https://i.gyazo.com/c20fabd4ac3f332c32b8d3732a80ec37.png" alt="Image from Gyazo" width="2856"/></a>
+
+Lambda Function の一覧画面にはリージョンを問わずすべての Function が掲載され、24時間以内の実行状態が概観できます。
+
+<a href="https://gyazo.com/a1f00d750221985c552d870baaf1adc5"><img src="https://i.gyazo.com/a1f00d750221985c552d870baaf1adc5.png" alt="Image from Gyazo" width="1513"/></a>
+
+個々の Lambda Function の詳細では実行時間やメモリ使用率のグラフ、また直近実行履歴において、それが cold start だったかどうかといった点まで一覧できて、結構使い勝手が良さそうです。ほかにも Function を指定して、 tail コマンドのようにリアルタイムで実行ログを追う機能があったり、 slack へのアラート機能もあったり、カスタマイズ性は高くないものの、 Lambda でいろいろと作ってはみたものの、どうやって運用しようと悩んでいる場合にサクッと使うにはアリかなと思っています。
+
 
