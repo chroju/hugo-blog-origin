@@ -6,6 +6,12 @@ isCJKLanguage = true
 draft = false
 +++
 
+## 2019-05-04 追記
+
+本文内で「Ergonomic 配列」という言葉を用いていましたが、より正確には「Column Staggered 配列」という言葉が当てはまりそうなので修正しました。上下が揃った「格子配列」の状態から、各キー列が上下に少しズレて指の長さに合うようになっている配列をこう呼ぶようです。
+
+参考: [ASCII.jp：人はなぜキーボードを自作するのか？　“キーボー道”への誘い (5/6)｜KTUの自作キーボー道](https://ascii.jp/elem/000/001/609/1609599/index-5.html)
+
 ## tl;dr
 
 * 分割キーボードは市販品の選択肢がない
@@ -60,7 +66,7 @@ draft = false
 
 * Low Profile
 * キー数は60前後
-* 可能であれば Ergonomic 配列
+* 可能であれば ~~Ergonomic 配列~~ Column Staggered 配列
 * OLED あり
 
 持ち運びを前提に考えているため、より薄型を実現できるロープロファイルがまず必須条件です。その点、当然キー数も抑えればそれだけ小型になりますが、数字キーすら排除したいわゆる 40% キーボードは使いこなせる自信がなかったので選択肢から外しました。分割じゃないですけど、 VORTEX CORE とかちいさかわいくて好きなんですけどね。
@@ -68,7 +74,7 @@ draft = false
 
 <div class="amazlet-box" style="margin-bottom:0px;"><div class="amazlet-image" style="float:left;margin:0px 12px 1px 0px;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B075FWF9RW/diary081213-22/ref=nosim/" name="amazletlink" target="_blank"><img src="https://images-fe.ssl-images-amazon.com/images/I/412H6dZvqUL._SL160_.jpg" alt="VORTEX CORE メカニカルミニキーボード 英語US配列 47キー Cherry MX 赤軸 VTG47REDBEG" style="border: none;" /></a></div><div class="amazlet-info" style="line-height:120%; margin-bottom: 10px"><div class="amazlet-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B075FWF9RW/diary081213-22/ref=nosim/" name="amazletlink" target="_blank">VORTEX CORE メカニカルミニキーボード 英語US配列 47キー Cherry MX 赤軸 VTG47REDBEG</a><div class="amazlet-powered-date" style="font-size:80%;margin-top:5px;line-height:120%">posted with <a href="http://www.amazlet.com/" title="amazlet" target="_blank">amazlet</a> at 19.04.25</div></div><div class="amazlet-detail">ヴォーテックス (Vortex) (2017-09-07)<br />売り上げランキング: 12,716<br /></div><div class="amazlet-sub-info" style="float: left;"><div class="amazlet-link" style="margin-top: 5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B075FWF9RW/diary081213-22/ref=nosim/" name="amazletlink" target="_blank">Amazon.co.jpで詳細を見る</a></div></div></div><div class="amazlet-footer" style="clear: left"></div></div>
 
-Ergonomic 配列と書いていますが、より正確に言えば親指にキーが多く配置されているものです。 Helix のような完全な格子配列ではなく、 Ergodox 系の親指用のキーが少し飛び出て配置されている感じ。 OLED というのは Helix にも付いている、マイコンボード（ProMicro）の上に付けた 32 x 128 の小さなディスプレイで、キーボードの情報やなにか画像を表示したりして遊ぶことができます。まぁこれは完全に好みです。せっかくなら遊べるほうがいいなと。
+~~Ergonomic 配列~~ Column Staggered 配列と書いていますが、より正確に言えば親指にキーが多く配置されているものです。 Helix のような完全な格子配列ではなく、 Ergodox 系の親指用のキーが少し飛び出て配置されている感じ。 OLED というのは Helix にも付いている、マイコンボード（ProMicro）の上に付けた 32 x 128 の小さなディスプレイで、キーボードの情報やなにか画像を表示したりして遊ぶことができます。まぁこれは完全に好みです。せっかくなら遊べるほうがいいなと。
 
 それら条件すべてに合致したのが Lily58 Pro でした。先の iris などもとてもよかったんですが、 Lily58 はちょうど遊舎工房さんに在庫があるということだったので、実店舗できちんと確かめながらパーツを買えそうだったというのもあり、それにしました。キースイッチがはめ込み式で、後から別のスイッチへ変更することもできるようになっているのも魅力でした。私が遊舎工房に行ったときはちょうど目当てだった Kalih Low Profile Choc の赤軸が在庫切れだったんですが、「取りあえず他の軸を買って、あとから赤に替えることもできますよ！」と店員さんに教えてもらいました。完全に沼という感じがします。ちなみに茶軸にしました。
 
