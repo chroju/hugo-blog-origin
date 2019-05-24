@@ -10,8 +10,9 @@ publishdir          = "public"
 theme               = "cocoa"
 author              = "chroju"
 title               = "the world as code"
-pygmentsuseclasses  = true
-pluralizelisttitles = false
+pygmentsCodefences  = true
+pygmentsStyle       = "solarized-dark"
+pygmentsOptions     = "linenos=inline"
 
 [outputFormats]
 [outputFormats.RSS]
@@ -49,10 +50,6 @@ lang                   = "ja"
 noshowreadtime         = false                         # if true, don't show "<x> minutes read" in posts
 selfintro              = ""                            # appears in the site header when set to a non-empty string
 twitter                = "//twitter.com/chroju"
-
-highlightjs            = true
-# highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
-highlightjsStyle     = "darcula"
 
 avatar                 = "img/avatar.png" # path to image in static dir e.g img/avatar.png (do not use in the same time as gravatar)
 # gravatar             = ""                # gravatar hash. see https://en.gravatar.com/site/implement/hash/. do not use in the same time as avatar
