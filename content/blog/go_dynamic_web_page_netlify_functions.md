@@ -128,6 +128,12 @@ Netlify Functions はカスタムドメインは使用できるものの、個�
     status = 200
 ```
 
+### go mod
+
+今回初めて go mod を利用したけど便利だった。利用にあたっては公式のドキュメントと以下のエントリーを参考にした。
+
+* [最近のGo Modulesプラクティス ~ ghqユーザーの場合も添えて | おそらくはそれさえも平凡な日々](https://songmu.jp/riji/entry/2019-03-28-go-modules.html)
+
 ## Conclusion
 
 すごく簡単に AWS Lambda と API Gateway が使えて楽しかった。対応言語が Go と JS だけなど制約もあるが、単発で動かす Lambda とエンドポイントがほしいだけの場合であれば、 AWS ではなく Netlify Functions でデプロイしたほうがいろいろと不便がなさそう。
