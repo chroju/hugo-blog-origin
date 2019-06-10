@@ -6,6 +6,6 @@ title = "About"
 
 ## chroju
 
-* Profile: https://chroju.net
+* Profile: https://chroju.dev
 * Contact: chor.chroju@gmail.com
 
